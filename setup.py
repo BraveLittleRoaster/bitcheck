@@ -14,7 +14,7 @@ setup(
     url="http://github.com/",
     packages=['bitcheck'],
     entry_points={'console_scripts': ['bitcheck=bitcheck.bitcheck:main']},
-    install_requres=DEPENDENCIES,
+    install_requires=DEPENDENCIES,
     keywords=['security', 'network', 'hacking', 'bitcoin', 'btc'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
