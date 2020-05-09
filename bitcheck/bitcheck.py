@@ -135,7 +135,7 @@ class BTCFuncs(object):
 
             try:
                 req = requests.get(url, headers=headers, proxies=proxies, verify=False)
-            except (requests.exceptions.ConnectionError, requests.exceptions.ConnectTimeout, ss) as e:
+            except (requests.exceptions.ConnectionError, requests.exceptions.ConnectTimeout, SSLError) as e:
                 if self._v:
                     print(f"{Fore.LIGHTBLACK_EX}[~] {self._provider}: ERROR: {e}. Retrying...{Fore.RESET}")
 
