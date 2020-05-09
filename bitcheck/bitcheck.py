@@ -12,6 +12,8 @@ from ssl import SSLError
 from bs4 import BeautifulSoup
 from colorama import Fore
 from tenacity import retry, retry_if_exception_type, wait_random
+import urllib3
+urllib3.disable_warnings()
 
 
 class RetryException(Exception):
