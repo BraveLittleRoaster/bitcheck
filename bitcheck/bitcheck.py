@@ -8,6 +8,7 @@ import blockcypher
 from fake_useragent import UserAgent
 from multiprocessing import cpu_count
 from multiprocessing.dummy import Pool
+from ssl import SSLError
 from bs4 import BeautifulSoup
 from colorama import Fore
 from tenacity import retry, retry_if_exception_type, wait_random
@@ -133,8 +134,8 @@ class BTCFuncs(object):
             }
 
             try:
-                req = requests.get(url, headers=headers, proxies=proxies)
-            except (requests.exceptions.ConnectionError, requests.exceptions.ConnectTimeout) as e:
+                req = requests.get(url, headers=headers, proxies=proxies, verify=False)
+            except (requests.exceptions.ConnectionError, requests.exceptions.ConnectTimeout, ss) as e:
                 if self._v:
                     print(f"{Fore.LIGHTBLACK_EX}[~] {self._provider}: ERROR: {e}. Retrying...{Fore.RESET}")
 
